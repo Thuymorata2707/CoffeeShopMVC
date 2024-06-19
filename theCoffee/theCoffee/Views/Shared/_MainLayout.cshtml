@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>The Coffee</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assets/User/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/User/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assets/User/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assets/User/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assets/User/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assets/User/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assets/User/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assets/User/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assets/User/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assets/User/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assets/User/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assets/User/css/style.css">
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <!-- Start Header - Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/Home">The<small>  Coffee</small></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="/Home" class="nav-link">Trang Chủ</a></li>
+                    <li class="nav-item"><a href="/Menu" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="/DichVu" class="nav-link">Dịch Vụ</a></li>
+                    <li class="nav-item"><a href="/Blog" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="/Contact" class="nav-link">Liên Hệ</a></li>
+                    <li class="nav-item cart"><a href="/Cart" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Header - Navigation -->
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- Start Footer-->
+    <footer class="ftco-footer ftco-section img">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Về Chúng Tôi</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Blog Gần Đây</h2>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(Assets/User/images/image_1.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(Assets/User/images/image_2.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-5">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">The Coffee</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="/Menu" class="py-2 d-block">Menu</a></li>
+                            <li><a href="/DichVu" class="py-2 d-block">Dịch Vụ</a></li>
+                            <li><a href="/Blog" class="py-2 d-block">Blog</a></li>
+                            <li><a href="/Cart" class="py-2 d-block">Giỏ Hàng</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Liên Hệ</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">235 Hoàng Quốc Việt, Hà Nội, Việt Nam</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+84 903452128</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">thanhkiet722000@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer-->
+
+    <script src="~/Assets/User/js/jquery.min.js"></script>
+    <script src="~/Assets/User/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Assets/User/js/popper.min.js"></script>
+    <script src="~/Assets/User/js/bootstrap.min.js"></script>
+    <script src="~/Assets/User/js/jquery.easing.1.3.js"></script>
+    <script src="~/Assets/User/js/jquery.waypoints.min.js"></script>
+    <script src="~/Assets/User/js/jquery.stellar.min.js"></script>
+    <script src="~/Assets/User/js/owl.carousel.min.js"></script>
+    <script src="~/Assets/User/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Assets/User/js/aos.js"></script>
+    <script src="~/Assets/User/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Assets/User/js/bootstrap-datepicker.js"></script>
+    <script src="~/Assets/User/js/jquery.timepicker.min.js"></script>
+    <script src="~/Assets/User/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/Assets/User/js/google-map.js"></script>
+    <script src="~/Assets/User/js/main.js"></script>
+
+    @RenderSection("Script", false)
+</body>
+</html>

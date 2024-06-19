@@ -1,0 +1,88 @@
+﻿@model IEnumerable<theCoffee.Models.NhanVien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <div class="row">
+
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Danh sách nhân viên</h4>
+                    <div class="box-header">
+                        <a href="/Admin/NhanVien/Create" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Thêm mới</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TenNV)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Avt)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NgaySinh)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.sdt)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Mail)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Luong)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ChucVu)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TenNV)
+                                        </td>
+                                        <td>
+                                            <img src="@item.Avt" width="100px" height="100px" />
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NgaySinh)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.sdt)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Mail)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Luong)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ChucVu)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.MaNV }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.MaNV })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content-wrapper ends -->

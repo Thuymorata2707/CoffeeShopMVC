@@ -1,0 +1,68 @@
+﻿@model IEnumerable<theCoffee.Models.CTHoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <div class="row">
+
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Danh sách chi tiết hóa đơn</h4>
+                    <div class="box-header">
+                        <a href="/Admin/CTHoaDon/Create" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Thêm mới</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SoLuong)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TienBan)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.HoaDon.MaHD)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.menu.TenSP)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SoLuong)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TienBan)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.HoaDon.MaHD)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.menu.TenSP)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.MaCTHD }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.MaCTHD })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content-wrapper ends -->

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<section class="ftco-section ftco-cart">
+    <div class="container">
+        <table align="center">
+            <h3 style="text-align:center">Đăng nhập</h3>
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <form>
+                    <p style="margin-left: 30%">
+                        <label style="margin-right: 8px">Tên đăng nhập: </label>
+                        @Html.TextBox("TenDN", null, new { style = "width: 250px; height: 40px; margin: 5px; border-radius: 5px; background-color: #c8c8c8 ", placeholder = "Nhập tên đăng nhập" })
+                        
+
+                    </p>
+                    <p style="margin-left: 30%">
+                        <label style="margin-right: 55px">Mật khẩu: </label>
+                        @Html.Password("MatKhau", null, new { style = "width: 250px; height: 40px; margin: 5px; border-radius: 5px; background-color: #c8c8c8 ", placeholder = "Nhập mật khẩu" })
+                        @ViewData["Loi2"]
+
+                    </p>
+                   
+                    <p style="margin-left: 43%">
+                        <input type="submit" value="Đăng nhập" style="margin-right: 40px; border-radius: 5px; background-color: lightblue; height: 40px">
+                        <span class="mr-2"><a href="/NguoiDung/DangKi">Đăng kí</a></span>
+                    </p>
+
+                </form>
+            }
+
+        </table>
+        
+    </div>
+    
+</section>

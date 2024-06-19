@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="home-slider owl-carousel">
+
+    <div class="slider-item" style="background-image: url(Assets/User/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Thông Tin Sản Phẩm</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/Home">Home</a></span> <span>Thông Tin Sản Phẩm</span></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            @{
+                var ProductItem = (List<theCoffee.Models.menu>)ViewBag.Product;
+                foreach (var item in ProductItem)
+                {
+                    <div class="col-lg-6 mb-5 ftco-animate">
+                        <a href="@item.HinhAnh" class="image-popup"><img src="@item.HinhAnh" class="img-fluid" alt="Colorlib Template"></a>
+                    </div>
+                    <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                        <h3>@item.TenSP</h3>
+                        <p class="price"><span>@item.GiaBan</span></p>
+                        <p>@item.MoTa</p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="form-group d-flex">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Small</option>
+                                            <option value="">Medium</option>
+                                            <option value="">Large</option>
+                                            <option value="">Extra Large</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="input-group col-md-6 d-flex mb-3">
+                                <span class="input-group-btn mr-2">
+                                    <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+                                        <i class="icon-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                                <span class="input-group-btn ml-2">
+                                    <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <p><a href="/Cart/AddToCart/@item.MaSP" class="btn btn-primary py-3 px-5">Thêm Vào Giỏ</a></p>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+
+

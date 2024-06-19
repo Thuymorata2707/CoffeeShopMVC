@@ -1,0 +1,63 @@
+﻿@model IEnumerable<theCoffee.Models.NCC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <div class="row">
+
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Danh sách nhà cung cấp</h4>
+                    <div class="box-header">
+                        <a href="/Admin/NCC/Create" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Thêm mới</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TenNCC)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.sdt)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DiaChi)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TenNCC)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.sdt)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DiaChi)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.MaNCC }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.MaNCC })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content-wrapper ends -->

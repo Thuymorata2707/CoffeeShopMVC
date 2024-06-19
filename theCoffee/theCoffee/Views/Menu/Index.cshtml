@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image: url(Assets/User/images/bg_3.jpg)" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Menu</h1>
+                    <p class="breadcrumbs">
+                        <span class="mr-2"><a href="/Home">Home</a></span> <span>Menu</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-intro">
+    <div class="container-wrap">
+        <div class="wrap d-md-flex align-items-xl-end">
+            <div class="info">
+                <div class="row no-gutters">
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="icon-phone"></span></div>
+                        <div class="text">
+                            <h3>090.345.2128</h3>
+                            <p>A small river named Duden flows by their place and supplies.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="icon-my_location"></span></div>
+                        <div class="text">
+                            <h3>235 Hoàng Quốc Việt</h3>
+                            <p>	235 HQV, Hà Nội, Việt Nam</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="icon-clock-o"></span></div>
+                        <div class="text">
+                            <h3>Th.2 - Th7</h3>
+                            <p>8:00am - 9:00pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-menu mb-5 pb-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Discover</span>
+                <h2 class="mb-4">TheCoffee Menu</h2>
+                <p>
+                    CÀ PHÊ CÓ DÀNH CHO TẤT CẢ MỌI NGƯỜI?<br />
+                    Thế hệ cà phê của đam mê và sáng tạo
+                </p>
+            </div>
+        </div>
+        <div class="row d-md-flex">
+            <div class="col-lg-12 ftco-animate p-md-5">
+                <div class="row">
+                    <div class="col-md-12 nav-link-wrap mb-5">
+                        <div class="nav ftco-animate nav-pills justify-content-center"
+                             id="v-pills-tab"
+                             role="tablist"
+                             aria-orientation="vertical">
+                            @{
+                                var DanhMuc = (List<theCoffee.Models.DanhMucSP>)ViewBag.listMaDanhMuc;
+                                for (int i = 0; i < DanhMuc.Count; i++)
+                                {
+                                    string idName = "v-pills-" + (i + 1).ToString() + "-tab";
+                                    string hrefName = "#v-pills-" + (i + 1).ToString();
+                                    string ariaControlsName = "v-pills-" + (i + 1).ToString();
+                                    <a class="nav-link"
+                                       id="@idName"
+                                       data-toggle="pill"
+                                       href="@hrefName"
+                                       role="tab"
+                                       aria-controls="@ariaControlsName"
+                                       aria-selected="false">@DanhMuc[i].TenDanhMuc</a>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex align-items-center">
+                        <div class="tab-content ftco-animate" id="v-pills-tabContent">
+                            @{ 
+                                for(int i = 0; i < DanhMuc.Count; i++)
+                                {
+                                    string IdName = "v-pills-" + (i + 1).ToString();
+                                    string AriaLabelledbyName = "v-pills-" + (i + 1).ToString() + "-tab";
+                                    <div class="tab-pane fade"
+                                         id="@IdName"
+                                         role="tabpanel"
+                                         aria-labelledby="@AriaLabelledbyName">
+                                        <div class="row">
+                                            @{
+                                                var SPTheoDanhMuc = (List<List<theCoffee.Models.menu>>)ViewBag.Category;
+                                                for (int j = 0; j < SPTheoDanhMuc.Count; j++)
+                                                {
+                                                    foreach (theCoffee.Models.menu item in SPTheoDanhMuc[j])
+                                                    {
+                                                        if (DanhMuc[i].MaDanhMuc == item.MaDanhMuc)
+                                                        {
+                                                            <div class="col-md-4 text-center">
+                                                                <div class="menu-wrap">
+                                                                    <a href="/Menu/ProductDetail/@item.MaSP"
+                                                                       class="menu-img img mb-4"
+                                                                       style="background-image: url(@item.HinhAnh)"></a>
+                                                                    <div class="text">
+                                                                        <h3><a href="/Menu/ProductDetail/@item.MaSP">@item.TenSP</a></h3>
+                                                                        <p>
+                                                                            @item.MoTa
+                                                                        </p>
+                                                                        <p class="price"><span>@item.GiaBan</span></p>
+                                                                        <p>
+                                                                            <a href="/Cart/AddToCart/@item.MaSP" class="btn btn-primary btn-outline-primary">Thêm Vào Giỏ</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+                                        </div>
+                                    </div>                                         
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+

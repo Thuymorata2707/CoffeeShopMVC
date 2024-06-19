@@ -1,0 +1,70 @@
+﻿@model IEnumerable<theCoffee.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <div class="row">
+
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Danh sách hóa đơn</h4>
+                    <div class="box-header">
+                        <a href="/Admin/HoaDon/Create" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Thêm mới</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NgayMua)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TongTien)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TrangThai)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.KhachHang.TenKH)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.FormatValue(item.NgayMua, "{0:dd/MM/yyyy}")
+                                        </td>
+                                        <td>
+                                            @Html.FormatValue(item.TongTien, "{0:#,###}")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TrangThai)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhachHang.TenKH)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.MaHD }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.MaHD })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content-wrapper ends -->
